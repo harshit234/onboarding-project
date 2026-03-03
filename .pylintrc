@@ -1,0 +1,34 @@
+[MASTER]
+# Ignore common AI/ML libraries to avoid unnecessary warnings
+ignored-modules=numpy,pandas,sklearn,torch,torchvision,matplotlib,seaborn,scipy
+
+[MESSAGES CONTROL]
+# Disable some of the more pedantic checks for beginners
+disable=
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    C0103, # invalid-name (often too strict for ML experiments)
+    R0903, # too-few-public-methods
+    R0913, # too-many-arguments (ML models often have many params)
+    R0914, # too-many-locals
+    W0611, # unused-import (beginners often import things they might use later)
+    W0612, # unused-variable
+    W0613, # unused-argument
+
+[REPORTS]
+# Don't display the full report, just the messages
+reports=no
+
+[BASIC]
+# Allow slightly longer lines for ML code (e.g., long function calls)
+max-line-length=100
+
+# Good variable names are still encouraged, but we've disabled the strict check above.
+# This section can be used to refine what's considered "good".
+variable-rgx=[a-z_][a-z0-9_]{1,30}$
+
+[DESIGN]
+# Increase the limit for arguments and locals for ML functions
+max-args=10
+max-locals=20
